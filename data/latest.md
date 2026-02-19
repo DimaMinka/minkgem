@@ -1,11 +1,11 @@
 # Telegram Data Dump
 
-> Generated: 2026-02-19 06:41 UTC
+> Generated: 2026-02-19 06:52 UTC
 
 ---
 
 ## [1] TechCrunch
-**Time:** 2026-02-17 12:41  
+**Time:** 2026-02-17 07:52  
 **Category:** `ai`  
 
 Google DeepMind unveils Gemini 2.5 Pro with native multimodal reasoning and 1M-token context window.
@@ -13,7 +13,7 @@ Google DeepMind unveils Gemini 2.5 Pro with native multimodal reasoning and 1M-t
 ---
 
 ## [2] The Verge
-**Time:** 2026-02-17 13:41  
+**Time:** 2026-02-19 00:52  
 **Category:** `ai`  
 
 Anthropic raises $3.5B Series D at $61.5B valuation to scale Claude infrastructure.
@@ -21,7 +21,7 @@ Anthropic raises $3.5B Series D at $61.5B valuation to scale Claude infrastructu
 ---
 
 ## [3] ArsTechnica
-**Time:** 2026-02-18 21:41  
+**Time:** 2026-02-17 22:52  
 **Category:** `os`  
 
 Linux 6.14 merges Rust abstractions for PCI drivers, marking a milestone for memory-safe kernel code.
@@ -29,7 +29,7 @@ Linux 6.14 merges Rust abstractions for PCI drivers, marking a milestone for mem
 ---
 
 ## [4] HackerNews
-**Time:** 2026-02-18 14:41  
+**Time:** 2026-02-17 10:52  
 **Category:** `db`  
 
 PostgreSQL 18 beta adds native support for JSON table functions and incremental backup.
@@ -37,7 +37,7 @@ PostgreSQL 18 beta adds native support for JSON table functions and incremental 
 ---
 
 ## [5] InfoQ
-**Time:** 2026-02-18 02:41  
+**Time:** 2026-02-17 21:52  
 **Category:** `devops`  
 
 OpenTelemetry reaches GA for profiling signal, completing the three pillars of observability.
@@ -45,7 +45,7 @@ OpenTelemetry reaches GA for profiling signal, completing the three pillars of o
 ---
 
 ## [6] BleepingComputer
-**Time:** 2026-02-19 05:41  
+**Time:** 2026-02-18 00:52  
 **Category:** `security`  
 
 Critical RCE in OpenSSH 9.9 (CVE-2026-1234) allows unauthenticated remote code execution.
@@ -53,7 +53,7 @@ Critical RCE in OpenSSH 9.9 (CVE-2026-1234) allows unauthenticated remote code e
 ---
 
 ## [7] TLDR
-**Time:** 2026-02-19 00:41  
+**Time:** 2026-02-19 04:52  
 **Category:** `infra`  
 
 Cloudflare open-sources Pingora HTTP proxy framework, challenging Nginx dominance.
@@ -61,7 +61,7 @@ Cloudflare open-sources Pingora HTTP proxy framework, challenging Nginx dominanc
 ---
 
 ## [8] AI News Daily
-**Time:** 2026-02-17 07:41  
+**Time:** 2026-02-17 22:52  
 **Category:** `ai`  
 **Note:** _semantic duplicate of earlier item_  
 
@@ -70,7 +70,7 @@ DeepMind launches Gemini 2.5 Pro — a multimodal model with million-token conte
 ---
 
 ## [9] ML Weekly
-**Time:** 2026-02-18 17:41  
+**Time:** 2026-02-17 23:52  
 **Category:** `ai`  
 **Note:** _semantic duplicate of earlier item_  
 
@@ -79,7 +79,7 @@ Anthropic closes a massive $3.5 billion funding round, pushing its valuation pas
 ---
 
 ## [10] DevOps Digest
-**Time:** 2026-02-17 09:41  
+**Time:** 2026-02-18 14:52  
 **Category:** `devops`  
 **Note:** _semantic duplicate of earlier item_  
 
@@ -88,7 +88,7 @@ OpenTelemetry profiling signal hits general availability — observability stack
 ---
 
 ## [11] CryptoGains
-**Time:** 2026-02-18 01:41  
+**Time:** 2026-02-17 20:52  
 **Category:** `spam`  
 
 🚀🚀🚀 This altcoin will 100x by March! Don't miss the next Solana! Link in bio!
@@ -96,7 +96,7 @@ OpenTelemetry profiling signal hits general availability — observability stack
 ---
 
 ## [12] FreeCourses
-**Time:** 2026-02-17 14:41  
+**Time:** 2026-02-18 12:52  
 **Category:** `spam`  
 
 FREE AWS certification — use code CLOUDFREE to get 100% off! Limited spots!!!
@@ -104,7 +104,7 @@ FREE AWS certification — use code CLOUDFREE to get 100% off! Limited spots!!!
 ---
 
 ## [13] GrowthHacks
-**Time:** 2026-02-17 13:41  
+**Time:** 2026-02-17 16:52  
 **Category:** `spam`  
 
 I made $47,000/month with this one ChatGPT prompt. Thread 🧵👇
@@ -112,7 +112,7 @@ I made $47,000/month with this one ChatGPT prompt. Thread 🧵👇
 ---
 
 ## [14] AIHustle
-**Time:** 2026-02-18 15:41  
+**Time:** 2026-02-18 05:52  
 **Category:** `spam`  
 
 BREAKING: Secret OpenAI API trick that saves 90% on tokens (they don't want you to know).
