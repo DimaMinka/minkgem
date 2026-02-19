@@ -1,105 +1,105 @@
 # Telegram Data Dump
 
-> Generated: 2026-02-19 07:09 UTC
+> Generated: 2026-02-19 07:25 UTC
 
 ---
 
-## [1] TechCrunch
-**Time:** 2026-02-19 02:09  
-**Category:** `hardware`  
-
-DJI unveils the Mic 3 Pro with 32-bit float internal recording and 300m range, redefining portable audio for creators.
-
----
-
-## [2] RoboticsWeekly
-**Time:** 2026-02-18 02:09  
-**Category:** `robotics`  
-
-OpenClaw v1.0 has been released. The first open-source framework for high-precision robotic limb control with native LLM integration.
-
----
-
-## [3] Reuters
-**Time:** 2026-02-18 14:09  
+## [1] OpenAINews
+**Time:** 2026-02-19 00:25  
 **Category:** `ai`  
 
-Elon Musk announces xAI's 'Colossus' supercomputer will expand to 500,000 H100 GPUs by the end of 2026.
+OpenAI drops Sora 1.1: Now featuring consistent character physics and high-fidelity 4K video generation up to 2 minutes.
 
 ---
 
-## [4] The Verge
-**Time:** 2026-02-17 09:09  
+## [2] 9to5Mac
+**Time:** 2026-02-17 22:25  
 **Category:** `hardware`  
 
-DJI pushes new firmware to Mavic 4 series, introducing 'ActiveTrack 6.0' with improved obstacle avoidance in dense forests.
+Apple announces 'Vision Pro 2' at WWDC, featuring a 30% lighter frame and the new M4 spatial compute chip.
 
 ---
 
-## [5] Bloomberg
-**Time:** 2026-02-17 22:09  
+## [3] KubeWeekly
+**Time:** 2026-02-17 21:25  
+**Category:** `devops`  
+
+Kubernetes 1.31 'Elliptical' is live. Introducing native sidecar container support and improved memory management for large clusters.
+
+---
+
+## [4] TechCrunch
+**Time:** 2026-02-18 23:25  
 **Category:** `ai`  
 
-Elon Musk confirms Grok 3 is currently training on the most powerful AI cluster in the world, aiming for release in Q4.
+OpenAI launches 'Sora API' for select enterprise partners, enabling programmatic video creation for the first time.
 
 ---
 
-## [6] GitHubTrending
-**Time:** 2026-02-17 18:09  
-**Category:** `robotics`  
+## [5] ArsTechnica
+**Time:** 2026-02-18 08:25  
+**Category:** `ai`  
 
-The OpenClaw project gains 10k stars in 48 hours. Developers are building affordable robotic prosthetics using the new API.
-
----
-
-## [7] DroneNews
-**Time:** 2026-02-19 05:09  
-**Category:** `hardware`  
-**Note:** _semantic duplicate of earlier item_  
-
-DJI Mic 3 Pro is here: Features 32-bit float audio and massive 300m wireless transmission distance.
+Apple's secret Project 'Quartz' revealed: A local-first LLM running entirely on-device for future iPhone models.
 
 ---
 
-## [8] AI Insider
-**Time:** 2026-02-18 14:09  
+## [6] CNCF
+**Time:** 2026-02-18 00:25  
+**Category:** `devops`  
+
+Etcd 4.0 alpha released: Rewritten in Rust for massive performance gains in high-throughput Kubernetes environments.
+
+---
+
+## [7] ML_Insider
+**Time:** 2026-02-18 15:25  
 **Category:** `ai`  
 **Note:** _semantic duplicate of earlier item_  
 
-Musk says Grok 3 will be the most advanced AI model once training finishes on their giant GPU cluster later this year.
+Sora 1.1 is out: Better physics, 4K resolution, and longer prompts. OpenAI is pushing the limits of generative video.
 
 ---
 
-## [9] OpenSourceDaily
-**Time:** 2026-02-19 01:09  
-**Category:** `robotics`  
+## [8] MacRumors
+**Time:** 2026-02-17 10:25  
+**Category:** `hardware`  
 **Note:** _semantic duplicate of earlier item_  
 
-New OpenClaw framework allows devs to control robotic arms using simple Python commands and LLM reasoning.
+Vision Pro 2 confirmed for early 2027. It will be lighter and powered by the cutting-edge M4 chip.
 
 ---
 
-## [10] ElonFans
-**Time:** 2026-02-19 02:09  
-**Category:** `spam`  
+## [9] CloudNativeDaily
+**Time:** 2026-02-18 17:25  
+**Category:** `devops`  
+**Note:** _semantic duplicate of earlier item_  
 
-Shocking: Elon Musk just revealed the secret to living forever. Watch before it's deleted! 😱
-
----
-
-## [11] DroneDeals
-**Time:** 2026-02-18 05:09  
-**Category:** `spam`  
-
-Get 90% OFF on all DJI drones today only! Click here to claim your coupon 🚁💰
+Kubernetes 1.31 released with major updates to sidecars and resource management efficiency.
 
 ---
 
-## [12] QuickCash
-**Time:** 2026-02-18 09:09  
+## [10] SoraLeaks
+**Time:** 2026-02-18 20:25  
 **Category:** `spam`  
 
-How Elon Musk's new AI 'OpenClaw' is making people $1000/day on autopilot. Register now!
+GET SORA FOR FREE! No waitlist, no credit card. Use our leaked API key now: [link] 🎬🔥
+
+---
+
+## [11] AppleStockTips
+**Time:** 2026-02-17 23:25  
+**Category:** `spam`  
+
+Urgent: Apple Vision Pro 2 secrets revealed! Why this is a 500% profit opportunity. Watch video. 📉🚀
+
+---
+
+## [12] HackerScams
+**Time:** 2026-02-18 08:25  
+**Category:** `spam`  
+
+New Kubernetes vulnerability allows anyone to mine Bitcoin on your cluster. Download this fix immediately.
 
 ---
 

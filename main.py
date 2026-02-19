@@ -12,68 +12,68 @@ OUTPUT = DATA_DIR / "latest.md"
 ITEMS = [
     # --- Genuine technical news ---
     {
+        "channel": "OpenAINews",
+        "text": "OpenAI drops Sora 1.1: Now featuring consistent character physics and high-fidelity 4K video generation up to 2 minutes.",
+        "category": "ai",
+    },
+    {
+        "channel": "9to5Mac",
+        "text": "Apple announces 'Vision Pro 2' at WWDC, featuring a 30% lighter frame and the new M4 spatial compute chip.",
+        "category": "hardware",
+    },
+    {
+        "channel": "KubeWeekly",
+        "text": "Kubernetes 1.31 'Elliptical' is live. Introducing native sidecar container support and improved memory management for large clusters.",
+        "category": "devops",
+    },
+    {
         "channel": "TechCrunch",
-        "text": "DJI unveils the Mic 3 Pro with 32-bit float internal recording and 300m range, redefining portable audio for creators.",
-        "category": "hardware",
-    },
-    {
-        "channel": "RoboticsWeekly",
-        "text": "OpenClaw v1.0 has been released. The first open-source framework for high-precision robotic limb control with native LLM integration.",
-        "category": "robotics",
-    },
-    {
-        "channel": "Reuters",
-        "text": "Elon Musk announces xAI's 'Colossus' supercomputer will expand to 500,000 H100 GPUs by the end of 2026.",
+        "text": "OpenAI launches 'Sora API' for select enterprise partners, enabling programmatic video creation for the first time.",
         "category": "ai",
     },
     {
-        "channel": "The Verge",
-        "text": "DJI pushes new firmware to Mavic 4 series, introducing 'ActiveTrack 6.0' with improved obstacle avoidance in dense forests.",
-        "category": "hardware",
-    },
-    {
-        "channel": "Bloomberg",
-        "text": "Elon Musk confirms Grok 3 is currently training on the most powerful AI cluster in the world, aiming for release in Q4.",
+        "channel": "ArsTechnica",
+        "text": "Apple's secret Project 'Quartz' revealed: A local-first LLM running entirely on-device for future iPhone models.",
         "category": "ai",
     },
     {
-        "channel": "GitHubTrending",
-        "text": "The OpenClaw project gains 10k stars in 48 hours. Developers are building affordable robotic prosthetics using the new API.",
-        "category": "robotics",
+        "channel": "CNCF",
+        "text": "Etcd 4.0 alpha released: Rewritten in Rust for massive performance gains in high-throughput Kubernetes environments.",
+        "category": "devops",
     },
     # --- Semantic duplicates ---
     {
-        "channel": "DroneNews",
-        "text": "DJI Mic 3 Pro is here: Features 32-bit float audio and massive 300m wireless transmission distance.",
-        "category": "hardware",
-        "duplicate_of": "DJI unveils the Mic 3 Pro",
-    },
-    {
-        "channel": "AI Insider",
-        "text": "Musk says Grok 3 will be the most advanced AI model once training finishes on their giant GPU cluster later this year.",
+        "channel": "ML_Insider",
+        "text": "Sora 1.1 is out: Better physics, 4K resolution, and longer prompts. OpenAI is pushing the limits of generative video.",
         "category": "ai",
-        "duplicate_of": "Elon Musk confirms Grok 3",
+        "duplicate_of": "OpenAI drops Sora 1.1",
     },
     {
-        "channel": "OpenSourceDaily",
-        "text": "New OpenClaw framework allows devs to control robotic arms using simple Python commands and LLM reasoning.",
-        "category": "robotics",
-        "duplicate_of": "OpenClaw v1.0 has been released",
+        "channel": "MacRumors",
+        "text": "Vision Pro 2 confirmed for early 2027. It will be lighter and powered by the cutting-edge M4 chip.",
+        "category": "hardware",
+        "duplicate_of": "Apple announces 'Vision Pro 2'",
+    },
+    {
+        "channel": "CloudNativeDaily",
+        "text": "Kubernetes 1.31 released with major updates to sidecars and resource management efficiency.",
+        "category": "devops",
+        "duplicate_of": "Kubernetes 1.31 'Elliptical' is live",
     },
     # --- Clickbait / promotional content ---
     {
-        "channel": "ElonFans",
-        "text": "Shocking: Elon Musk just revealed the secret to living forever. Watch before it's deleted! 😱",
+        "channel": "SoraLeaks",
+        "text": "GET SORA FOR FREE! No waitlist, no credit card. Use our leaked API key now: [link] 🎬🔥",
         "category": "spam",
     },
     {
-        "channel": "DroneDeals",
-        "text": "Get 90% OFF on all DJI drones today only! Click here to claim your coupon 🚁💰",
+        "channel": "AppleStockTips",
+        "text": "Urgent: Apple Vision Pro 2 secrets revealed! Why this is a 500% profit opportunity. Watch video. 📉🚀",
         "category": "spam",
     },
     {
-        "channel": "QuickCash",
-        "text": "How Elon Musk's new AI 'OpenClaw' is making people $1000/day on autopilot. Register now!",
+        "channel": "HackerScams",
+        "text": "New Kubernetes vulnerability allows anyone to mine Bitcoin on your cluster. Download this fix immediately.",
         "category": "spam",
     },
 ]
