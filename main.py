@@ -91,11 +91,41 @@ async def main():
         for p in results:
             all_posts.extend(p)
 
-    # 3. Save to JSON
+    # 3. Merge with existing data to avoid duplicates
+    existing_data = []
+    if OUTPUT_FILE.exists():
+        try:
+            with open(OUTPUT_FILE, "r", encoding="utf-8") as f:
+                existing_data = json.load(f)
+        except (json.JSONDecodeError, IOError):
+            existing_data = []
+
+    # Map existing URLs for O(1) lookup
+    seen_urls = {post["url"] for post in existing_data if "url" in post}
+    
+    new_entries = 0
+    for post in all_posts:
+        if post["url"] not in seen_urls:
+            existing_data.append(post)
+            seen_urls.add(post["url"])
+            new_entries += 1
+
+    # 4. Sort by publication date (newest first) and limit history
+    # Use fallback to scraped_at if published_at is missing
+    existing_data.sort(
+        key=lambda x: x.get("published_at") or x.get("scraped_at") or "", 
+        reverse=True
+    )
+    
+    # Keep only the latest 500 entries to prevent file bloating
+    final_data = existing_data[:500]
+
+    # 5. Save to JSON
     with open(OUTPUT_FILE, "w", encoding="utf-8") as f:
-        json.dump(all_posts, f, indent=2, ensure_ascii=False)
+        json.dump(final_data, f, indent=2, ensure_ascii=False)
         
-    print(f"✓ Scraped {len(all_posts)} posts from {len(config['channels'])} channels to {OUTPUT_FILE}")
+    print(f"✓ Scraped {len(all_posts)} items. Added {new_entries} new unique posts.")
+    print(f"✓ Total posts in {OUTPUT_FILE}: {len(final_data)}")
 
 if __name__ == "__main__":
     asyncio.run(main())

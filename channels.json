@@ -1,20 +1,28 @@
 {
     "channels": [
         {
-            "username": "durov",
-            "label": "Pavel Durov"
-        },
-        {
-            "username": "techcrunch",
-            "label": "TechCrunch"
+            "username": "vostochnysyndrome",
+            "label": "Восточный синдром"
         },
         {
             "username": "OpenAI",
             "label": "OpenAI News"
         },
         {
-            "username": "samaltman",
-            "label": "Sam Altman"
+            "username": "robotless",
+            "label": "Грин еще не робот"
+        },
+        {
+            "username": "geektimecoil",
+            "label": "Geektimes"
+        },
+        {
+            "username": "NewsIsraelNash",
+            "label": "Израиль наш Север"
+        },
+        {
+            "username": "voinasordoy",
+            "label": "Воина с ордой"
         }
     ]
 }
