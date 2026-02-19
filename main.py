@@ -1,121 +1,101 @@
 #!/usr/bin/env python3
-"""Generate a mock Telegram data dump for LLM deduplication testing."""
+"""
+Telegram Channel Scraper
+Fetches the latest public posts from channels defined in channels.json
+and outputs them to data/latest.json.
+"""
 
+import json
+import asyncio
+import httpx
+from bs4 import BeautifulSoup
 from pathlib import Path
-from datetime import datetime, timedelta, UTC
-import random
+from datetime import datetime, UTC
+import sys
 
+# Constants
 DATA_DIR = Path("data")
-OUTPUT = DATA_DIR / "latest.md"
+OUTPUT_FILE = DATA_DIR / "latest.json"
+CONFIG_FILE = Path("channels.json")
 
-# Realistic tech news items with semantic duplicates and spam mixed in
-ITEMS = [
-    # --- Genuine technical news ---
-    {
-        "channel": "OpenAINews",
-        "text": "OpenAI drops Sora 1.1: Now featuring consistent character physics and high-fidelity 4K video generation up to 2 minutes.",
-        "category": "ai",
-    },
-    {
-        "channel": "9to5Mac",
-        "text": "Apple announces 'Vision Pro 2' at WWDC, featuring a 30% lighter frame and the new M4 spatial compute chip.",
-        "category": "hardware",
-    },
-    {
-        "channel": "KubeWeekly",
-        "text": "Kubernetes 1.31 'Elliptical' is live. Introducing native sidecar container support and improved memory management for large clusters.",
-        "category": "devops",
-    },
-    {
-        "channel": "TechCrunch",
-        "text": "OpenAI launches 'Sora API' for select enterprise partners, enabling programmatic video creation for the first time.",
-        "category": "ai",
-    },
-    {
-        "channel": "ArsTechnica",
-        "text": "Apple's secret Project 'Quartz' revealed: A local-first LLM running entirely on-device for future iPhone models.",
-        "category": "ai",
-    },
-    {
-        "channel": "CNCF",
-        "text": "Etcd 4.0 alpha released: Rewritten in Rust for massive performance gains in high-throughput Kubernetes environments.",
-        "category": "devops",
-    },
-    # --- Semantic duplicates ---
-    {
-        "channel": "ML_Insider",
-        "text": "Sora 1.1 is out: Better physics, 4K resolution, and longer prompts. OpenAI is pushing the limits of generative video.",
-        "category": "ai",
-        "duplicate_of": "OpenAI drops Sora 1.1",
-    },
-    {
-        "channel": "MacRumors",
-        "text": "Vision Pro 2 confirmed for early 2027. It will be lighter and powered by the cutting-edge M4 chip.",
-        "category": "hardware",
-        "duplicate_of": "Apple announces 'Vision Pro 2'",
-    },
-    {
-        "channel": "CloudNativeDaily",
-        "text": "Kubernetes 1.31 released with major updates to sidecars and resource management efficiency.",
-        "category": "devops",
-        "duplicate_of": "Kubernetes 1.31 'Elliptical' is live",
-    },
-    # --- Clickbait / promotional content ---
-    {
-        "channel": "SoraLeaks",
-        "text": "GET SORA FOR FREE! No waitlist, no credit card. Use our leaked API key now: [link] 🎬🔥",
-        "category": "spam",
-    },
-    {
-        "channel": "AppleStockTips",
-        "text": "Urgent: Apple Vision Pro 2 secrets revealed! Why this is a 500% profit opportunity. Watch video. 📉🚀",
-        "category": "spam",
-    },
-    {
-        "channel": "HackerScams",
-        "text": "New Kubernetes vulnerability allows anyone to mine Bitcoin on your cluster. Download this fix immediately.",
-        "category": "spam",
-    },
-]
+async def fetch_channel(client: httpx.AsyncClient, channel: dict) -> list[dict]:
+    """Scrape the latest posts from a single public Telegram channel."""
+    username = channel["username"]
+    url = f"https://t.me/s/{username}"
+    
+    print(f"Fetching {username}...")
+    try:
+        response = await client.get(url, follow_redirects=True)
+        response.raise_for_status()
+    except httpx.HTTPError as e:
+        print(f"Error fetching {username}: {e}", file=sys.stderr)
+        return []
 
+    soup = BeautifulSoup(response.text, "lxml")
+    posts = []
 
-def generate_dump() -> str:
-    """Build a Markdown-formatted mock Telegram data dump."""
-    now = datetime.now(UTC)
-    lines = [
-        f"# Telegram Data Dump",
-        f"",
-        f"> Generated: {now.strftime('%Y-%m-%d %H:%M UTC')}",
-        f"",
-        f"---",
-        f"",
-    ]
+    # Telegram public view structure: <div class="tgme_widget_message">
+    messages = soup.find_all("div", class_="tgme_widget_message", limit=15)
 
-    for i, item in enumerate(ITEMS):
-        ts = (now - timedelta(hours=random.randint(1, 48))).strftime(
-            "%Y-%m-%d %H:%M"
-        )
-        lines.append(f"## [{i + 1}] {item['channel']}")
-        lines.append(f"**Time:** {ts}  ")
-        lines.append(f"**Category:** `{item['category']}`  ")
-        if "duplicate_of" in item:
-            lines.append(f"**Note:** _semantic duplicate of earlier item_  ")
-        lines.append(f"")
-        lines.append(item["text"])
-        lines.append(f"")
-        lines.append(f"---")
-        lines.append(f"")
+    for msg in messages:
+        # 1. Text Content
+        text_div = msg.find("div", class_="tgme_widget_message_text")
+        if not text_div:
+            continue  # brightness/service messages
+        
+        text = text_div.get_text(separator="\n").strip()
+        if not text:
+            continue
 
-    lines.append(f"_Total items: {len(ITEMS)}_")
-    return "\n".join(lines)
+        # 2. Timestamp & URL
+        # <a class="tgme_widget_message_date" href="...">
+        date_link = msg.find("a", class_="tgme_widget_message_date")
+        if not date_link:
+            continue
+            
+        post_url = date_link["href"]
+        
+        # Parse timestamp: <time datetime="2025-05-18T14:34:20+00:00">
+        time_tag = date_link.find("time")
+        published_at = time_tag["datetime"] if time_tag else None
 
+        posts.append({
+            "channel": channel["label"],
+            "username": username,
+            "text": text[:2000], # limit text length
+            "url": post_url,
+            "published_at": published_at,
+            "scraped_at": datetime.now(UTC).isoformat()
+        })
+    
+    return posts
 
-def main() -> None:
+async def main():
+    # 1. Setup
     DATA_DIR.mkdir(parents=True, exist_ok=True)
-    content = generate_dump()
-    OUTPUT.write_text(content, encoding="utf-8")
-    print(f"✓ Wrote {len(ITEMS)} items to {OUTPUT}")
+    
+    if not CONFIG_FILE.exists():
+        print(f"Config file {CONFIG_FILE} not found!", file=sys.stderr)
+        sys.exit(1)
+        
+    with open(CONFIG_FILE, "r") as f:
+        config = json.load(f)
 
+    all_posts = []
+    
+    # 2. Fetch all channels concurrently
+    async with httpx.AsyncClient(timeout=10.0) as client:
+        tasks = [fetch_channel(client, ch) for ch in config["channels"]]
+        results = await asyncio.gather(*tasks)
+        
+        for p in results:
+            all_posts.extend(p)
+
+    # 3. Save to JSON
+    with open(OUTPUT_FILE, "w", encoding="utf-8") as f:
+        json.dump(all_posts, f, indent=2, ensure_ascii=False)
+        
+    print(f"✓ Scraped {len(all_posts)} posts from {len(config['channels'])} channels to {OUTPUT_FILE}")
 
 if __name__ == "__main__":
-    main()
+    asyncio.run(main())
