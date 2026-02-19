@@ -13,77 +13,67 @@ ITEMS = [
     # --- Genuine technical news ---
     {
         "channel": "TechCrunch",
-        "text": "Google DeepMind unveils Gemini 2.5 Pro with native multimodal reasoning and 1M-token context window.",
+        "text": "DJI unveils the Mic 3 Pro with 32-bit float internal recording and 300m range, redefining portable audio for creators.",
+        "category": "hardware",
+    },
+    {
+        "channel": "RoboticsWeekly",
+        "text": "OpenClaw v1.0 has been released. The first open-source framework for high-precision robotic limb control with native LLM integration.",
+        "category": "robotics",
+    },
+    {
+        "channel": "Reuters",
+        "text": "Elon Musk announces xAI's 'Colossus' supercomputer will expand to 500,000 H100 GPUs by the end of 2026.",
         "category": "ai",
     },
     {
         "channel": "The Verge",
-        "text": "Anthropic raises $3.5B Series D at $61.5B valuation to scale Claude infrastructure.",
+        "text": "DJI pushes new firmware to Mavic 4 series, introducing 'ActiveTrack 6.0' with improved obstacle avoidance in dense forests.",
+        "category": "hardware",
+    },
+    {
+        "channel": "Bloomberg",
+        "text": "Elon Musk confirms Grok 3 is currently training on the most powerful AI cluster in the world, aiming for release in Q4.",
         "category": "ai",
     },
     {
-        "channel": "ArsTechnica",
-        "text": "Linux 6.14 merges Rust abstractions for PCI drivers, marking a milestone for memory-safe kernel code.",
-        "category": "os",
+        "channel": "GitHubTrending",
+        "text": "The OpenClaw project gains 10k stars in 48 hours. Developers are building affordable robotic prosthetics using the new API.",
+        "category": "robotics",
+    },
+    # --- Semantic duplicates ---
+    {
+        "channel": "DroneNews",
+        "text": "DJI Mic 3 Pro is here: Features 32-bit float audio and massive 300m wireless transmission distance.",
+        "category": "hardware",
+        "duplicate_of": "DJI unveils the Mic 3 Pro",
     },
     {
-        "channel": "HackerNews",
-        "text": "PostgreSQL 18 beta adds native support for JSON table functions and incremental backup.",
-        "category": "db",
-    },
-    {
-        "channel": "InfoQ",
-        "text": "OpenTelemetry reaches GA for profiling signal, completing the three pillars of observability.",
-        "category": "devops",
-    },
-    {
-        "channel": "BleepingComputer",
-        "text": "Critical RCE in OpenSSH 9.9 (CVE-2026-1234) allows unauthenticated remote code execution.",
-        "category": "security",
-    },
-    {
-        "channel": "TLDR",
-        "text": "Cloudflare open-sources Pingora HTTP proxy framework, challenging Nginx dominance.",
-        "category": "infra",
-    },
-    # --- Semantic duplicates (same meaning, different wording) ---
-    {
-        "channel": "AI News Daily",
-        "text": "DeepMind launches Gemini 2.5 Pro — a multimodal model with million-token context and advanced reasoning.",
+        "channel": "AI Insider",
+        "text": "Musk says Grok 3 will be the most advanced AI model once training finishes on their giant GPU cluster later this year.",
         "category": "ai",
-        "duplicate_of": "Google DeepMind unveils Gemini 2.5 Pro",
+        "duplicate_of": "Elon Musk confirms Grok 3",
     },
     {
-        "channel": "ML Weekly",
-        "text": "Anthropic closes a massive $3.5 billion funding round, pushing its valuation past $60 billion.",
-        "category": "ai",
-        "duplicate_of": "Anthropic raises $3.5B Series D",
-    },
-    {
-        "channel": "DevOps Digest",
-        "text": "OpenTelemetry profiling signal hits general availability — observability stack now complete.",
-        "category": "devops",
-        "duplicate_of": "OpenTelemetry reaches GA for profiling signal",
+        "channel": "OpenSourceDaily",
+        "text": "New OpenClaw framework allows devs to control robotic arms using simple Python commands and LLM reasoning.",
+        "category": "robotics",
+        "duplicate_of": "OpenClaw v1.0 has been released",
     },
     # --- Clickbait / promotional content ---
     {
-        "channel": "CryptoGains",
-        "text": "🚀🚀🚀 This altcoin will 100x by March! Don't miss the next Solana! Link in bio!",
+        "channel": "ElonFans",
+        "text": "Shocking: Elon Musk just revealed the secret to living forever. Watch before it's deleted! 😱",
         "category": "spam",
     },
     {
-        "channel": "FreeCourses",
-        "text": "FREE AWS certification — use code CLOUDFREE to get 100% off! Limited spots!!!",
+        "channel": "DroneDeals",
+        "text": "Get 90% OFF on all DJI drones today only! Click here to claim your coupon 🚁💰",
         "category": "spam",
     },
     {
-        "channel": "GrowthHacks",
-        "text": "I made $47,000/month with this one ChatGPT prompt. Thread 🧵👇",
-        "category": "spam",
-    },
-    {
-        "channel": "AIHustle",
-        "text": "BREAKING: Secret OpenAI API trick that saves 90% on tokens (they don't want you to know).",
+        "channel": "QuickCash",
+        "text": "How Elon Musk's new AI 'OpenClaw' is making people $1000/day on autopilot. Register now!",
         "category": "spam",
     },
 ]
