@@ -97,7 +97,19 @@ async def main():
         try:
             with open(OUTPUT_FILE, "r", encoding="utf-8") as f:
                 existing_data = json.load(f)
-        except (json.JSONDecodeError, IOError):
+            
+            # Daily Reset Logic: Clear history if the last entry is from a previous day
+            if existing_data:
+                last_date_str = existing_data[0].get("published_at") or existing_data[0].get("scraped_at")
+                if last_date_str:
+                    # Parse to date object (handling Z or +00:00)
+                    last_date = datetime.fromisoformat(last_date_str.replace("Z", "+00:00")).date()
+                    current_date = datetime.now(UTC).date()
+                    
+                    if current_date > last_date:
+                        print(f"🗓 New day detected ({current_date}). Resetting daily history...")
+                        existing_data = []
+        except (json.JSONDecodeError, IOError, ValueError):
             existing_data = []
 
     # Map existing URLs for O(1) lookup
